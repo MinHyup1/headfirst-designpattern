@@ -7,18 +7,18 @@ public class StatisticsDisplay implements Observer, Display {
     private float temperature;
     private float humidity;
     private float pressure;
-    private WeatherData weatherData;
+    private final WeatherData weatherData;
 
-    public StatisticsDisplay(WeatherData weatherData) {
+    public StatisticsDisplay(final WeatherData weatherData) {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        this.temperature = temp;
-        this.humidity = humidity;
-        this.pressure = pressure;
+    public void update() {
+        this.temperature = weatherData.getTemperature();
+        this.humidity = weatherData.getHumidity();
+        this.pressure = weatherData.getPressure();
         display();
     }
 

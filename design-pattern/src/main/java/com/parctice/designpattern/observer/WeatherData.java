@@ -1,12 +1,18 @@
 package com.parctice.designpattern.observer;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherData implements Subject {
     private List<Observer> observers;
+
+    @Getter
     private float temperature;
+    @Getter
     private float humidity;
+    @Getter
     private float pressure;
 
     public WeatherData() {
@@ -26,7 +32,7 @@ public class WeatherData implements Subject {
     @Override
     public void notifyObservers() {
         for (Observer observer : observers) {
-            observer.update(this.temperature, this.humidity, this.pressure);
+            observer.update();
         }
     }
 

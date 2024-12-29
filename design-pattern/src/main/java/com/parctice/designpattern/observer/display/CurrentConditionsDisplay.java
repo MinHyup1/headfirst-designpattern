@@ -6,17 +6,17 @@ import com.parctice.designpattern.observer.WeatherData;
 public class CurrentConditionsDisplay implements Observer, Display {
     private float temperature;
     private float humidity;
-    private WeatherData weatherData;
+    private final WeatherData weatherData;
 
-    public CurrentConditionsDisplay(WeatherData weatherData) {
+    public CurrentConditionsDisplay(final WeatherData weatherData) {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        this.temperature = temp;
-        this.humidity = humidity;
+    public void update() {
+        this.temperature = weatherData.getTemperature();
+        this.humidity = weatherData.getTemperature();
         display();
     }
 
