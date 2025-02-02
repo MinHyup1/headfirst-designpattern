@@ -9,6 +9,11 @@ public class Whip extends CondimentDecorator {
         this.beverage = beverage;
     }
 
+    public Whip(Beverage beverage, int count) {
+        this.beverage = beverage;
+        this.count = count;
+    }
+
     @Override
     public String getDescription() {
         return this.beverage.getDescription() + ", 휘핑";

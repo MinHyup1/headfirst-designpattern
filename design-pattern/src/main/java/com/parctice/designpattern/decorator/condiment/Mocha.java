@@ -7,6 +7,12 @@ public class Mocha extends CondimentDecorator {
 
     public Mocha(Beverage beverage) {
         this.beverage = beverage;
+        this.count = 1;
+    }
+
+    public Mocha(Beverage beverage, int count) {
+        this.count = count;
+        this.beverage = beverage;
     }
 
     @Override
@@ -16,7 +22,7 @@ public class Mocha extends CondimentDecorator {
 
     @Override
     public Integer cost() {
-        return beverage.cost() + 500;
+        return beverage.cost() + 500 * count;
     }
 
 }
