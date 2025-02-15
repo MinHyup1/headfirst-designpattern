@@ -1,6 +1,6 @@
 package com.parctice.designpattern.d_factory.pizza;
 
-public class CheesePizza implements Pizza {
+public class CheesePizza extends Pizza {
     @Override
     public void prepare() {
 
