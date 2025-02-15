@@ -1,21 +1,24 @@
 package com.parctice.designpattern.d_factory.store;
 
-import com.parctice.designpattern.d_factory.pizza.Pizza;
-import com.parctice.designpattern.d_factory.pizza.newyork.NYStyleCheesePizza;
-import com.parctice.designpattern.d_factory.pizza.newyork.NYStyleClamPizza;
-import com.parctice.designpattern.d_factory.pizza.newyork.NYStylePepperoniPizza;
-import com.parctice.designpattern.d_factory.pizza.newyork.NYStyleVeggiePizza;
+import com.parctice.designpattern.d_factory.pizza.*;
+import com.parctice.designpattern.d_factory.pizza.ingredient.factory.NYPizzaIngredientFactory;
 
 public class NYPizzaStore extends PizzaStore{
     @Override
     protected Pizza createPizza(String type) {
-        if(type.equals("cheese")) return new NYStyleCheesePizza();
+        NYPizzaIngredientFactory ingredientFactory = new NYPizzaIngredientFactory();
 
-        if(type.equals("veggie")) return new NYStyleVeggiePizza();
+        if(type.equals("cheese")) {
+            CheesePizza cheesePizza = new CheesePizza(ingredientFactory);
+            cheesePizza.setName("뉴욕 스타일 치즈 피자");
+            return cheesePizza;
+        }
 
-        if(type.equals("clam")) return new NYStyleClamPizza();
+        if(type.equals("veggie")) return new VeggiePizza();
 
-        if(type.equals("pepperoni")) return new NYStylePepperoniPizza();
+        if(type.equals("clam")) return new ClamPizza(ingredientFactory);
+
+        if(type.equals("pepperoni")) return new PepperoniPizza();
 
         throw new IllegalArgumentException();
     }

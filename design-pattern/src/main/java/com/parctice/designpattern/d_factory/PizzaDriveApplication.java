@@ -4,7 +4,7 @@ import com.parctice.designpattern.d_factory.store.ChicagoPizzaStore;
 import com.parctice.designpattern.d_factory.store.NYPizzaStore;
 import com.parctice.designpattern.d_factory.store.PizzaStore;
 
-public class PizzaDrive {
+public class PizzaDriveApplication {
     public static void main(String[] args) {
         PizzaStore nyStore = new NYPizzaStore();
         PizzaStore chicagoStore = new ChicagoPizzaStore();
