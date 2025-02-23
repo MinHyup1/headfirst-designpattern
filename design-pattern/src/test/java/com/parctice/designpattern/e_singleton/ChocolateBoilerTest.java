@@ -15,8 +15,10 @@ class ChocolateBoilerTest {
 
         for (int i = 0; i < 5; i++) { // 총 5개의 작업 제출
             executor.submit(() -> {
-                ChocolateBoiler singletonInstance = ChocolateBoiler.getInstance();
-                System.out.println(Thread.currentThread().getName() + " - 실행 중" + "\n 싱글톤 객체 : " + singletonInstance.hashCode() );
+                ChocolateBoilerEnum singletonInstance = ChocolateBoilerEnum.INSTANCE;
+
+                singletonInstance.fill();
+                System.out.println(Thread.currentThread().getName() + " - 실행 중" + "\n 싱글톤 객체 : " + singletonInstance );
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
