@@ -1,15 +1,11 @@
 package com.parctice.designpattern.e_singleton;
 
 public class ChocolateBoiler {
-    private static ChocolateBoiler singletonInstance;
+    private static ChocolateBoiler singletonInstance = new ChocolateBoiler();;
     private boolean empty;
     private boolean boiled;
 
-    static synchronized ChocolateBoiler getInstance() {
-        if (singletonInstance == null) {
-            System.out.println("is null");
-            singletonInstance = new ChocolateBoiler();
-        }
+    static  ChocolateBoiler getInstance() {
         return singletonInstance;
     }
 
